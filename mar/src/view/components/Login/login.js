@@ -11,8 +11,8 @@ import {
 
 
 function Login(props) {
-
     let history = useHistory();
+
     return (
         <div className="login">
             <form >
@@ -24,18 +24,20 @@ function Login(props) {
 
             <label for="lname">Password:</label>
             <input type="text" id="Inp-password" name="Inp-password" ></input>
-            
-            <button onClick={() => {
-                    history.push('/register')
-                }}> New User </button>        
+
+            <button onClick="onLogin()"> New User </button>        
             </form> 
  
         </div>
-
         );
       
 
 }
+function onLogin() {
 
+
+    history.push('/register');
+}
 
 export default Login;
+
