@@ -73,12 +73,12 @@ app.post('/api/login',(req,res)=>{
 
 app.post('/api/register', (req, res) => {
     const { body } = req;
-    // console.log(body)
+    console.log(body)
     const {userEmail,firstName,lastName,imgUrl,password } = body;
             let newUser=new User ( { userEmail:userEmail , firstName:firstName, lastName: lastName,imgUrl:imgUrl,password:password} )
             newUser.save().then(doc=>{
-                console.log(doc)
-                res.send({login:true, id:doc._id})
+                console.log(doc);
+                res.send({login:true, firstName:doc.firstName,lastName:doc.lastName})
             })
   })
 
