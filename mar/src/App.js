@@ -11,35 +11,21 @@ import {
   useHistory
 } from "react-router-dom";
 
+import Register from './view/components/Register/Register';
+
 
 function App() {
   return (
     <div className="App">
        <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">login</Link>
-            </li>
-            <li>
-              <Link to="/about">Login</Link>
-            </li>
-            
-       
-          </ul>
-        </nav>
-
 
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/register">
-            <Users />
+           <Route path="/register">
+            <Register/>
           </Route>
           <Route path="/">
-            <Home />
+            <Login />
           </Route>
         </Switch>
       </div>
@@ -48,25 +34,19 @@ function App() {
     </div>
   );
 }
-function Home() {
+function Login() {
   let history =useHistory();
   return(
     <div className="login">
       <h1>hello rege</h1>
       <button onClick={()=>{
         history.push('/register')
-      }}></button>
+      }}>das dsa</button>
     </div>
   );
 }
 
-function About() {
-  return(
-<h1>12312</h1>
-  );
-}
 
-function Users() {
-  return <h2>register</h2>;
-}
+
+
 export default App;
