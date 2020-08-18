@@ -86,17 +86,18 @@ app.post('/api/register', (req, res) => {
 
 
 app.post('/api/todo', async (req, res) => {
-    const lastName = req.body;
+    const {lastName} = req.body;
   
-    console.log(req.body)
+    console.log(lastName)
+
     let docs = await Task.aggregate([
         { $match: { 'user.lastName': lastName } },
-            {         
-            $group: {
-                _id: '$lastName',
-                users: { $push: "$$ROOT" }
-            }
-        }
+        //     {         
+        //     $group: {
+        //         _id: '$lastName',
+        //         users: { $push: "$$ROOT" }
+        //     }
+        // }
     ])
 console.log(docs);
 res.send(docs)
