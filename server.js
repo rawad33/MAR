@@ -63,7 +63,7 @@ app.post('/api/login', (req, res) => {
             res.send('RONG USER - משתמש לא נכון - مستخدم غير موجود ');
         }
         else {
-            res.send({ login: true }, lastName);
+            res.send( lastName);
 
         }
     })
