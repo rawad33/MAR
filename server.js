@@ -63,13 +63,13 @@ app.post('/api/login', (req, res) => {
         console.log(doc.lastName);
         if (doc == null) {
 
-             res.send({errMsg, login:false});
-         }
+            res.send({ errMsg, login: false });
+        }
         else {
             let lastName = doc.lastName;
-            res.send( {lastName, login:true});
+            res.send({ lastName, login: true });
 
-         }
+        }
     })
 })
 
@@ -83,22 +83,23 @@ app.post('/api/register', (req, res) => {
         res.send({ login: true })
     })
 })
-wwdfsdd
 
-app.post('/api/todo',async (req, res) => {
-    const {lastName} = req.body;
+
+app.post('/api/todo', async (req, res) => {
+    const lastName = req.body;
+  
     console.log(req.body)
-    let docs =await Task.aggregate([
-        { $match:{'user.lastName' : lastName}},
-        {
-            $group:{
-                _id:'$lastName',
-                users:{$push:"$$ROOT"}
+    let docs = await Task.aggregate([
+        { $match: { 'user.lastName': lastName } },
+            {         
+            $group: {
+                _id: '$lastName',
+                users: { $push: "$$ROOT" }
             }
         }
     ])
-    
-    res.send(docs)
+console.log(docs);
+res.send(docs)
 })
 
 
