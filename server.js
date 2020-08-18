@@ -60,10 +60,10 @@ app.post('/api/login',(req,res)=>{
     User.findOne({firstName:firstName},{lastName:lastName},{password:password}).then(doc=>{
         console.log(doc);
         if(doc==null){
-            res.send('RONG USER - go to register ')   
+            res.send('RONG USER - משתמש לא נכון - مستخدم غير موجود ') ; 
         }
         else{
-            res.send({login:true},doc)   
+            res.send({login:true},doc) ;  
 
         }
     })
@@ -72,13 +72,13 @@ app.post('/api/login',(req,res)=>{
 
 
 app.post('/api/register', (req, res) => {
-    const { body } = req;
+    const {userEmail,firstName,lastName,imgUrl,password} = req.body;
     // console.log(body)
     const {userEmail,firstName,lastName,imgUrl,password } = body;
             let newUser=new User ( { userEmail:userEmail , firstName:firstName, lastName: lastName,imgUrl:imgUrl,password:password} )
             newUser.save().then(doc=>{
                 console.log(doc)
-                res.send({login:true, id:doc._id})
+                res.send({login:true})
             })
   })
 
