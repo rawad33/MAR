@@ -86,22 +86,42 @@ app.post('/api/register', (req, res) => {
 
 
 app.post('/api/todo', async (req, res) => {
-    const {lastName} = req.body;
-  
-    console.log("lastName",lastName)
+    const { lastName } = req.body;
+
+    console.log("lastName", lastName)
 
     let docs = await Task.aggregate([
         { $match: { 'user.lastName': lastName } },
-            {         
+        {
             $group: {
                 _id: '$user.firstName',
                 tasks: { $push: "$$ROOT" }
             }
         }
     ])
-console.log('docs', docs);
-res.send(docs)
+    console.log('docs', docs);
+    res.send(docs)
 })
+
+
+app.post('/api/todo', async (req, res) => {
+    const { lastName } = req.body;
+
+    console.log("lastName", lastName)
+
+    let docs = await Task.aggregate([
+        { $match: { 'user.lastName': lastName } },
+        {
+            $group: {
+                _id: '$user.firstName',
+                tasks: { $push: "$$ROOT" }
+            }
+        }
+    ])
+    console.log('docs', docs);
+    res.send(docs)
+})
+
 
 
 

@@ -63,8 +63,9 @@ function Todo() {
             return (
 >>>>>>> dev
 
-              <div id="taskcard"> 
-                <h2 >{elem._id}</h2>
+              <div id="taskcard">
+                <h2 >{elem._id} </h2>
+
                 {
 
 <<<<<<< HEAD
@@ -75,16 +76,15 @@ function Todo() {
                   elem.tasks.map((task, index) => {
                     return (
                       <div id="task-data">
-                             <p  onClick={opentask}> {index+1} {task.taskTitle} </p>
-                         
-                            <img src={Trash} alt="trash" />
-                              <input type="checkbox" />       
-                       </div>
-                              
+                        <p > {index + 1} {task.taskTitle} </p>
+                        <img src={Trash} alt="trash" />
+                        <input type="checkbox" />
+                      </div>
+
                     )
-                                
-                              })}
-                  
+
+                  })}
+
               </div>
 
             )
