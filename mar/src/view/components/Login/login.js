@@ -59,7 +59,7 @@ function Login(props) {
             .then(data => {
                 //   let result} = data;
                 if (data.login == true) {
-                    localStorage.setItem("UserLastname", data.lastName);
+                    localStorage.setItem("lastName", data.lastName);
 
                     //       history.push("/Todo");
                     history.push("/todo");

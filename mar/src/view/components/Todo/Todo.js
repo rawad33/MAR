@@ -4,8 +4,8 @@ import './Todo.css'
 
 
 function Todo() {
-  let userLastName = localStorage.getItem("UserLastname");
-  console.log(userLastName);
+  let lastName = localStorage.getItem("lastName");
+  console.log(lastName);
   return (
     <div className="todo">
       <h1>TO-DO</h1>
@@ -20,7 +20,7 @@ function Todo() {
    function ongetToDo() {
     fetch('/api/todo', {  
       method: 'POST',
-      body: JSON.stringify({ userLastName }),
+      body: JSON.stringify({ lastName }),
       headers: {
         'Content-Type': 'application/json'
       }
