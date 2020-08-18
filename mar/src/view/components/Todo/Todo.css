@@ -3,6 +3,13 @@
     margin: auto;
     background-color: cornflowerblue;
 }
+
+#task-data {
+   display:flex ;
+   width: 80%
+   }
+
+
 #task-data img{
  width: 2%;
 }

@@ -46,9 +46,9 @@ function Todo() {
                   elem.tasks.map((task, index) => {
                     return (
                       <div id="task-data">
-                             <p> {index+1} {task.taskTitle} </p>
+                             <p  onClick={opentask}> {index+1} {task.taskTitle} </p>
                          
-                            <img src={Trash} alt="trash"  />
+                            <img src={Trash} alt="trash" />
                               <input type="checkbox" />       
                        </div>
                               
