@@ -13,11 +13,6 @@ import {
 function Login(props) {
     let history = useHistory();
 
-
-
-
-
-
     return (
         <div className="login">
             <h2>Login</h2>
