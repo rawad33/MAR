@@ -5,17 +5,18 @@ import './Todo.css'
 
 
 function Todo() {
+  const [todotasks , setTodotasks] = useState([]);
   let lastName = localStorage.getItem("lastName");
-  console.log(lastName);
+  // console.log(lastName);
+  console.log(todotasks[0])
+  
   return (
     <div className="todo">
       <h1>TO-DO</h1>
       <button onClick={ongetToDo}> get data</button>
-      
-
-
-
-
+  
+  
+ 
 
     </div>
 
@@ -23,8 +24,7 @@ function Todo() {
   
 
 
-  const [todotasks , setTodotasks] = useState([]);
-  console.log(todotasks);
+ 
    function ongetToDo() {
     fetch('/api/todo', {  
       method: 'POST',
@@ -36,9 +36,11 @@ function Todo() {
     })
     .then(res => res.json())
     .then(data => {
-      data.map((task,index)=>{
-        setTodotasks(task);
-      })
+      // console.log(data)
+      // console.log(data[0])
+      // console.log(data[0]._id)
+      setTodotasks(data);
+
 
     })
    }
