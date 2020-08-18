@@ -83,19 +83,19 @@ app.post('/api/register', (req, res) => {
         res.send({ login: true })
     })
 })
-
+wwdfsdd
 
 app.post('/api/todo',async (req, res) => {
     const {lastName} = req.body;
     console.log(req.body)
     let docs =await Task.aggregate([
-        { $match:{'user.lastName' : lastName }},
-        // {
-        //     $group:{
-        //         _id:'$lastName',
-        //         users:{$push:"$$ROOT"}
-        //     }
-        // }
+        { $match:{'user.lastName' : lastName}},
+        {
+            $group:{
+                _id:'$lastName',
+                users:{$push:"$$ROOT"}
+            }
+        }
     ])
     
     res.send(docs)
