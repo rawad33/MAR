@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Todo.css'
+
 
 
 
@@ -10,13 +11,20 @@ function Todo() {
     <div className="todo">
       <h1>TO-DO</h1>
       <button onClick={ongetToDo}> get data</button>
+      
+
 
 
 
 
     </div>
-  )
 
+  )
+  
+
+
+  const [todotasks , setTodotasks] = useState([]);
+  console.log(todotasks);
    function ongetToDo() {
     fetch('/api/todo', {  
       method: 'POST',
@@ -28,7 +36,10 @@ function Todo() {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      data.map((task,index)=>{
+        setTodotasks(task);
+      })
+
     })
    }
 
