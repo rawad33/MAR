@@ -39,15 +39,15 @@ function Todo() {
           todotasks.map((elem, index) => {
             return (
 
-              <div>
-                <p >{elem._id}</p>
+              <div id="taskcard"> 
+                <h2 >{elem._id}</h2>
                 {
 
                   elem.tasks.map((task, index) => {
                     return (
-                      <div>
+                      <div id="task-data">
                              <p> {index+1} {task.taskTitle} </p>
-                            <button>sad</button>
+                         
                             <img src={Trash} alt="trash"  />
                               <input type="checkbox" />       
                        </div>

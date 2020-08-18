@@ -1,7 +1,11 @@
 .todo{
-    color: black;
+    width: 90%;
+    margin: auto;
+    background-color: cornflowerblue;
 }
-
+#task-data img{
+ width: 2%;
+}
 p{
     color: black;
 }
