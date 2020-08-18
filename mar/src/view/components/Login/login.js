@@ -51,21 +51,22 @@ function Login(props) {
         lastName = lastName.value;
         password = password.value;
 
-        console.log(firstName);
+
 
         fetch('/api/login', {
             method: 'POST',
             body: JSON.stringify({ firstName, lastName, password }),
             headers: {
                 'Content-Type': 'application/json'
-            },
+            }
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            let {result} = data;
+            console.log("got resp")
         })
 
-
+// 
 
     };
 
