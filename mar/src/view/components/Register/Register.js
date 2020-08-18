@@ -29,7 +29,6 @@ function Register() {
         <label>Password:</label> <br />
         <input password='text' name='password' placeholder="Password" required /><br />
         <button type='submit'>Register</button><br />
-
       </form>
     </div>
   )
@@ -55,19 +54,15 @@ function Register() {
     }).then(res => res.json())
       .then(data => {
         console.log(data);
-        const { firstName, lastName, Registerstatus } = data;
-        console.log(firstName);
+        const {Registerstatus } = data;
+        console.log(Registerstatus);
         if (Registerstatus) {
-         
+          history.push('/');
         }
   
       
       })
-  
-  
-  
-      history.push('/');
-  
+
   
   }
 
