@@ -13,31 +13,48 @@ import {
 function Login(props) {
     let history = useHistory();
 
+
+
+
+
+
     return (
         <div className="login">
-            <form >
-            <label for="username">Username:</label>
-            <input type="text" id="Inp-UserName" name="Inp-username"></input>
+            <h2>Login</h2>
 
-            <label for="Inp-Lastname">Lastname:</label>
-            <input type="text" id="Inp-Lastname" name="Inp-Lastname"></input>
+            <input type="text" id="Inp-UserName" name="Inp-username" placeholder="first name"></input>
+            <input type="text" id="Inp-Lastname" name="Inp-Lastname" placeholder="last name"></input>
+            <input type="text" id="Inp-password" name="Inp-password" placeholder="password"></input>
 
-            <label for="lname">Password:</label>
-            <input type="text" id="Inp-password" name="Inp-password" ></input>
+            <button name="loginBtn" onClick={onLogin}> Login </button>
+            <button name="registerBtn" onClick={onRegister}> register a new User </button>
 
-            <button onClick="onLogin()"> New User </button>        
-            </form> 
- 
-        </div>
-        );
-      
+        </div >
+    );
+
+    function onLogin(e) {
+        e.preventDefault();
+
+        /*      fetch('/api/login', {
+                 method: 'POST',
+                 body: {  },
+                 headers: { }
+             })
+         */
+
+
+    };
+
+    function onRegister(e) {
+        e.preventDefault();
+        history.push("/Register");
+    }
+
 
 }
-function onLogin() {
 
 
-    history.push('/register');
-}
+
 
 export default Login;
 
