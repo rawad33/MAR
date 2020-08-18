@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import './Login.css';
 
@@ -23,25 +22,49 @@ function Login(props) {
         <div className="login">
             <h2>Login</h2>
 
-            <input type="text" id="Inp-UserName" name="Inp-username" placeholder="first name"></input>
+            {/* <input type="text" id="Inp-UserName" name="Inp-username" placeholder="first name"></input>
             <input type="text" id="Inp-Lastname" name="Inp-Lastname" placeholder="last name"></input>
             <input type="text" id="Inp-password" name="Inp-password" placeholder="password"></input>
 
             <button name="loginBtn" onClick={onLogin}> Login </button>
+            <button name="registerBtn" onClick={onRegister}> register a new User </button> */}
+
+            <form onSubmit={onLogin}>
+
+                <input type='text' name='firstName' placeholder="First Nmae" required /><br />
+                <input type='text' name='lastName' placeholder="Last Name" required /><br />
+                <input password='text' name='password' placeholder="Password" required /><br />
+                <button type='submit'>Login</button><br />
+
+            </form>
+
             <button name="registerBtn" onClick={onRegister}> register a new User </button>
 
         </div >
     );
 
     function onLogin(e) {
-        e.preventDefault();
 
-        /*      fetch('/api/login', {
-                 method: 'POST',
-                 body: {  },
-                 headers: { }
-             })
-         */
+        e.preventDefault();
+        let { firstName, lastName, password } = e.target.elements;
+        firstName = firstName.value;
+        lastName = lastName.value;
+        password = password.value;
+
+        console.log(firstName);
+
+        fetch('/api/login', {
+            method: 'POST',
+            body: JSON.stringify({ firstName, lastName, password }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+
 
 
     };
@@ -58,9 +81,4 @@ function Login(props) {
 
 
 export default Login;
-=======
-
-
-
->>>>>>> dev
 
