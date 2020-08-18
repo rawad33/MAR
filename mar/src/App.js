@@ -13,6 +13,7 @@ import {
 
 import Register from './view/components/Register/Register';
 import Login from './view/components/Login/Login';
+import Todo from './view/components/Todo/Todo';
 
 
 function App() {
@@ -25,8 +26,11 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/" >
+            <Route exact={true} path="/" >
               <Login />
+            </Route>
+            <Route path="/todo" >
+              <Todo />
             </Route>
           </Switch>
         </div>

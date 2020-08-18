@@ -60,20 +60,31 @@ function Login(props) {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            let {result} = data;
-            console.log("got resp")
-        })
+            .then(res => res.json())
+            .then(data => {
+                //   let result} = data;
+                if (data.login == true) {
+                    localStorage.setItem("UserLastname", data.lastName);
 
-// 
+                    //       history.push("/Todo");
+                    history.push("/todo");
+                }
+
+                console.log(data);
+            })
+
 
     };
 
     function onRegister(e) {
         e.preventDefault();
-        history.push("/Register");
+        history.push("/register");
     }
+
+    // function onTodo(e) {
+   
+    //     history.push("/todo");
+    // }
 
 
 }

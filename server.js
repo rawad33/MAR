@@ -59,13 +59,17 @@ app.post('/api/login', (req, res) => {
     const { firstName, lastName, password } = req.body;
     User.findOne({ firstName: firstName }, { lastName: lastName }, { password: password }).then(doc => {
         console.log(doc);
+        let errMsg = 'RONG USER - משתמש לא נכון - مستخدم غير موجود ';
+        console.log(doc.lastName);
         if (doc == null) {
-            res.send('RONG USER - משתמש לא נכון - مستخدم غير موجود ');
-        }
-        else {
-            res.send( lastName);
 
-        }
+             res.send({errMsg, login:false});
+         }
+        else {
+            let lastName = doc.lastName;
+            res.send( {lastName, login:true});
+
+         }
     })
 })
 
